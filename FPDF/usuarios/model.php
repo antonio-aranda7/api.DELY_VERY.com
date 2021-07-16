@@ -1,21 +1,18 @@
 <?php
     # Importar modelo de abstracción de base de datos
-    //require_once('../core/db_abstract_model.php');
-    //require_once('D:\XAMPP\htdocs\MVC\mysql_table\mysql_table.php');
     require_once('..\core\mysql_table.php');
 
     class Usuario {
-
         # Reportar un usuario
-        public function reporte() {
+        public function report() {
 
             //Aqui es para que agarre el FPDF
-            $link = mysqli_connect('localhost','root','','dbmvc');
+            $link = mysqli_connect('localhost','root','','delyvery');
 
             $pdf = new PDF();
             $pdf->AddPage("P");
             // First table: output all columns
-            $pdf->Table($link,'SELECT nombre, apellido, email FROM usuarios ORDER BY email');
+            $pdf->Table($link,'SELECT id, title, image, price, description FROM capas ORDER BY id');
             $pdf->Output();
         }
 

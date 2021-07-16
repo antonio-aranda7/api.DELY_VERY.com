@@ -6,18 +6,11 @@ class productos
 {
     // Datos de la tabla "productos"
     const NOMBRE_TABLE =      "capas";
-    const ID_PRODUCTO =     "id_producto";
-    const TITULO =          "titulo";
-    const IMAGEN =          "imagen";
-    const PRECIO =          "precio";
-    const DESCRIPCION =     "descripcion";
-/*
-    const CODIGO_EXITO = 1;
-    const ESTADO_EXITO = 1;
-    const ESTADO_ERROR = 2;
-    const ESTADO_ERROR_BD = 3;
-    const ESTADO_ERROR_PARAMETROS = 4;
-    const ESTADO_NO_ENCONTRADO = 5;*/
+    const ID_PRODUCTO =     "id";
+    const TITULO =          "title";
+    const IMAGEN =          "image";
+    const PRECIO =          "price";
+    const DESCRIPCION =     "description";
 
     public static function get($peticion)
     {
@@ -54,13 +47,13 @@ class productos
         $body = file_get_contents('php://input');
         $producto = json_decode($body);
 
-        $id_producto = productos::crear($producto);
+        $id = productos::crear($producto);
 
         http_response_code(201);
         return [
             "estado" => 1,
             "mensaje" => "Producto creado",
-            "id" => $id_producto
+            "id" => $id
         ];
     }
 
@@ -82,15 +75,15 @@ class productos
                 // Preparar la sentencia
                 $sentencia = $pdo->prepare($comando);
 
-                $sentencia->bindParam(1, $titulo);
-                $sentencia->bindParam(2, $imagen);
-                $sentencia->bindParam(3, $precio);
-                $sentencia->bindParam(4, $descripcion);
+                $sentencia->bindParam(1, $title);
+                $sentencia->bindParam(2, $image);
+                $sentencia->bindParam(3, $price);
+                $sentencia->bindParam(4, $description);
 
-                $titulo =             $producto->titulo;
-                $imagen =             $producto->imagen;
-                $precio =             $producto->precio;
-                $descripcion =        $producto->descripcion;
+                $title =             $producto->title;
+                $image =             $producto->image;
+                $price =             $producto->price;
+                $description =        $producto->description;
 
                 $sentencia->execute();
 
@@ -133,7 +126,7 @@ class productos
 
     private static function actualizar($producto)
     {
-        $id_productox = $producto['id_producto'];
+        $idx = $producto['id'];
         try {
             //Creando consulta UPDATE
             $consulta = "UPDATE " . self::NOMBRE_TABLE .
@@ -147,18 +140,18 @@ class productos
             // Preparar la sentencia
             $sentencia = ConexionBD::obtenerInstancia()->obtenerBD()->prepare($consulta);
 
-            $sentencia->bindParam(1, $id_productox);
-            $sentencia->bindParam(2, $titulo);
-            $sentencia->bindParam(3, $imagen);
-            $sentencia->bindParam(4, $precio);
-            $sentencia->bindParam(5, $descripcion);
-            $sentencia->bindParam(1, $id_producto);
+            $sentencia->bindParam(1, $idx);
+            $sentencia->bindParam(2, $title);
+            $sentencia->bindParam(3, $image);
+            $sentencia->bindParam(4, $price);
+            $sentencia->bindParam(5, $description);
+            $sentencia->bindParam(1, $id);
 
-            $id_producto=         $producto->id_productox;
-            $titulo =             $producto->titulo;
-            $imagen =             $producto->imagen;
-            $precio =             $producto->precio;
-            $descripcion =        $producto->descripcion;
+            $id=         $producto->idx;
+            $title =             $producto->title;
+            $image =             $producto->image;
+            $price =             $producto->price;
+            $description =        $producto->description;
             // Ejecutar la sentencia
         $sentencia->execute();
 
@@ -188,7 +181,7 @@ class productos
 
     private static function eliminar($producto){
 
-        $id_productox = $producto['id_producto'];
+        $idx = $producto['id'];
         try{
        // Sentencia DELETE
         $comando = "DELETE FROM " . self::NOMBRE_TABLE .
@@ -196,7 +189,7 @@ class productos
 
         // Preparar la sentencia
         $sentencia = ConexionBD::obtenerInstancia()->obtenerBD()->prepare($comando);
-        $sentencia->bindParam(1, $id_productox);
+        $sentencia->bindParam(1, $idx);
 
         $sentencia->execute();
 
@@ -229,7 +222,7 @@ class productos
             $pdf = new PDF();
             $pdf->AddPage("P");
             // First table: output all columns
-            $pdf->Table($link,'SELECT titulo, precio, imagen, descripcion FROM productos ORDER BY titulo');
+            $pdf->Table($link,'SELECT title, price, image, description FROM productos ORDER BY title');
             $pdf->Output();
         }*/
 }//oidhfaiusfhnfinowefdwe´fd e
