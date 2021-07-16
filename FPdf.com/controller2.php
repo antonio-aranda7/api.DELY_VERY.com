@@ -1,6 +1,7 @@
 <?php
 	class  Db{
 		private static $conexion=NULL;
+		
 		private function __construct (){}
 
 		public static function conectar(){

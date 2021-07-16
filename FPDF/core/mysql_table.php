@@ -1,6 +1,5 @@
 <?php
-//require('D:\XAMPP\htdocs\MVC\core\fpdf.php');
-require('D:\XAMPP\htdocs\MVC\fpdf183\fpdf.php');
+require('..\fpdf183\fpdf.php');
 
 class PDF_MySQL_Table extends FPDF
 {
