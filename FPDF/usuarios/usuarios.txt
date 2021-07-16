@@ -1,0 +1,3 @@
+éste, será el directorio de nuestro módulo de usuarios. En él, almacenaremos los archivos
+correspondientes al modelo, la lógica de la vista y el controlador, exclusivos del módulo de
+usuarios.

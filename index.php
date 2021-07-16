@@ -5,7 +5,9 @@ require 'vistas/VistaJson.php';
 require 'utilidades/ConexionBD.php';
 require 'utilidades/ExcepcionApi.php';
 
-//URL http://localhost/api.delyvery.com/index.php
+//URL http://localhost/api.DELY_VERY.com/index.php
+//FPDF
+// http://localhost/api.DELY_VERY.com/Fpdf.com/view.php
 
 // Constantes de estado
 const ESTADO_URL_INCORRECTA = 2;
@@ -56,7 +58,7 @@ switch ($metodo) {
     case 'get':
     case 'post':
     case 'put':
-    case 'reportar':
+    //case 'reportar':
     case 'delete':
         if (method_exists($recurso, $metodo)) {
             $respuesta = call_user_func(array($recurso, $metodo), $peticion);

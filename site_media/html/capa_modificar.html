@@ -1,0 +1,19 @@
+<!-- (archivo para visualizar los datos de un capa y modificarlos) -->
+<form id="alta_capa" action="{EDIT}" method="POST">
+    <div class="item_requerid">E-mail</div>
+    <!-- nótese que en este archivo deberán reemplazarse dinámicamente los datos
+del capa en los campos de formulario correspondientes. Obsérvese que el campo
+“email” es de solo lectura. -->
+    <div class="form_requerid">
+        <input type="text" name="titulo id="titulo" value="{titulo}" readonly>
+    </div>
+    <div class="item_requerid">precio</div>
+    <div class="form_requerid"><input type="text" name="precio" id="precio" value="{precio}">
+    </div>
+    <div class="item_requerid">descripcion</div>
+    <div class="form_requerid"><input type="text" name="descripcion" id="descripcion" value="{descripcion}">
+    </div>
+    <div class="form_button"><input type="submit" name="enviar"
+        id="enviar" value="Guardar">
+    </div>
+</form>

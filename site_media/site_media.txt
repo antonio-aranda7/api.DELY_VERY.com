@@ -1,0 +1,3 @@
+será el directorio exclusivo para nuestros diseñadores. En él, organizadmente, nuestros
+diseñadores podrán trabajar libremente, creando los archivos estáticos que la aplicación
+requiera.

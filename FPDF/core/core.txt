@@ -1,0 +1,4 @@
+el propósito de este directorio, será almacenar todas aquellas clases, helpers, utils,
+decorators, etc, que puedan ser reutilizados en otros módulos de la aplicación (aquí solo
+crearemos el de usuarios), es decir, todo aquello que pueda ser considerado “núcleo” del
+sistema.

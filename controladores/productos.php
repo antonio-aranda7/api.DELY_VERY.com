@@ -1,59 +1,35 @@
 <?php
 // Constantes de estado
-require('D:\XAMPP\htdocs\api.delyvery.com\mysql_table\mysql_table.php');
+//require('D:\XAMPP\htdocs\api.delyvery.com\mysql_table\mysql_table.php');
 
 class productos
 {
     // Datos de la tabla "productos"
-    const NOMBRE_TABLE =      "productos";
+    const NOMBRE_TABLE =      "capas";
     const ID_PRODUCTO =     "id_producto";
     const TITULO =          "titulo";
     const IMAGEN =          "imagen";
     const PRECIO =          "precio";
     const DESCRIPCION =     "descripcion";
-
+/*
     const CODIGO_EXITO = 1;
     const ESTADO_EXITO = 1;
     const ESTADO_ERROR = 2;
     const ESTADO_ERROR_BD = 3;
     const ESTADO_ERROR_PARAMETROS = 4;
-    const ESTADO_NO_ENCONTRADO = 5;
+    const ESTADO_NO_ENCONTRADO = 5;*/
 
     public static function get($peticion)
     {
-        //  $Origen =productos::obtenerOrigen();
         if (empty($peticion[0])) {
             return self::obtenerproductos();
         } else {
-            //    return self::obtenerproductos();
 
             throw new ExcepcionApi("Url mal formada", 400);
         }
     }
 
-    /*
-    public function obtenerOrigen()
-    {
-        // $comando = "SELECT " . self::ID_CORRIDA . self::ID_BUSLINE . self::ORIGEN . self::DESTINO . self::INICIAL_ORIGEN . self::INICIAR_DESTINO . self::HORA_DE_PARTIDA . self::HORA_DE_LLEGADA . self::DIAS_DE_OPERACION . self::COSTO .
-        $comando = "SELECT " . self::ORIGEN .
-            " FROM " . self::NOMBRE_TABLE .
-            " WHERE " . self::ORIGEN . "=?";
-
-        $sentencia = ConexionBD::obtenerInstancia()->obtenerBD()->prepare($comando);
-
-        // $sentencia->bindParam(1, $this-> self::Origen);
-        $sentencia->bindParam(1, $Origen);
-
-        if ($sentencia->execute()) {
-            $resultado = $sentencia->fetch();
-            return $resultado['Origen'];
-        } else {
-            return null;
-        }
-    }
-    */
-    
-    private function obtenerproductos()
+    private static function obtenerproductos()
     {
         try {
 
@@ -88,7 +64,7 @@ class productos
         ];
     }
 
-    private function crear($producto)
+    private static function crear($producto)
     {
         if ($producto) {
             try {
@@ -155,7 +131,7 @@ class productos
         }
     }
 
-    private function actualizar($producto)
+    private static function actualizar($producto)
     {
         $id_productox = $producto['id_producto'];
         try {
@@ -210,7 +186,7 @@ class productos
         }
     }
 
-    private function eliminar($producto){
+    private static function eliminar($producto){
 
         $id_productox = $producto['id_producto'];
         try{
@@ -245,7 +221,7 @@ class productos
         }
     }
     */
-    
+    /*
     // Reportar un usuario
     public function reportar() {
             $link = mysqli_connect('localhost','root','','delyvery');
@@ -255,9 +231,9 @@ class productos
             // First table: output all columns
             $pdf->Table($link,'SELECT titulo, precio, imagen, descripcion FROM productos ORDER BY titulo');
             $pdf->Output();
-        }
+        }*/
 }//oidhfaiusfhnfinowefdwe´fd e
-
+/*
 //Para el fpdf
 class PDF extends PDF_MySQL_Table
     {
@@ -270,4 +246,4 @@ class PDF extends PDF_MySQL_Table
             // Ensure table header is printed
             parent::Header();
         }
-    }
+    }*/
